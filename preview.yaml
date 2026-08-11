@@ -1,0 +1,7 @@
+# Overlay config for private preview builds (e.g. Netlify Drop).
+# Build with:  hugo --config hugo.yaml,preview.yaml --minify
+# This adds a noindex meta tag + a Disallow-all robots.txt so search engines
+# never crawl the preview. The normal GitHub Pages build (hugo.yaml only)
+# leaves both off.
+params:
+  noindex: true

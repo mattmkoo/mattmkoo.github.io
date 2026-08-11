@@ -1,0 +1,23 @@
+# level: "Undergraduate" or "Graduate" — shown as a pill on the right of the title.
+# - course: "Immigration"
+#   level: "Undergraduate"
+#   role: "Teaching Fellow"
+#   instructor: "Prof. Nicholas Sambanis"
+#   institution: "Yale University"
+#   term: "Fall 2026"
+
+- course: "Government and Politics in Africa"
+  level: "Undergraduate"
+  role: "Teaching Fellow"
+  instructor: "Prof. Kate Baldwin"
+  institution: "Yale University"
+  term: "Fall 2025"
+  eval: "Evaluation: 4.8/5 | Dept Avg: 4.1"
+
+- course: "Comparative Politics: States, Regimes, & Conflict"
+  level: "Undergraduate"
+  role: "Teaching Fellow"
+  instructor: "Prof. Ana De La O"
+  institution: "Yale University"
+  term: "Fall 2024"
+  eval: "Evaluation: 4.4/5 | Dept Avg: 4.4"

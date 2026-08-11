@@ -1,0 +1,12 @@
+{{ define "main" }}
+<article class="section page cv-page">
+  <h1>{{ .Title }}</h1>
+  <div class="cv-embed">
+    <object data="{{ "files/cv_koo.pdf" | relURL }}" type="application/pdf" aria-label="Curriculum vitae PDF">
+      <p>The PDF viewer could not be loaded in this browser.</p>
+    </object>
+  </div>
+  <p class="cv-fallback">If the PDF does not load, you can <a href="{{ "files/cv_koo.pdf" | relURL }}" download="cv_koo.pdf">download it here</a>.</p>
+  <p class="back-link"><a href="{{ "/" | relURL }}">&larr; Back to home</a></p>
+</article>
+{{ end }}

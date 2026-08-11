@@ -1,0 +1,5 @@
+public/
+public_check/
+public_prodcheck/
+resources/_gen/
+.hugo_build.lock

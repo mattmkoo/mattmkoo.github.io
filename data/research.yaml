@@ -1,0 +1,36 @@
+# Papers: job market paper, working papers, and works in progress.
+# section: "working" or "in-progress". Set job_market_paper: true for the JMP.
+# Add pdf: "files/paper-name.pdf" once a PDF is uploaded to static/files/.
+
+- title: "Who Stays Loyal? Security Personnel Support in Autocratic Elections"
+  section: working
+  status: "under review"
+  job_market_paper: true
+  abstract: "As opposition to an authoritarian regime strengthens, which members of the security apparatus remain loyal? Conventional accounts of ethnic stacking predict that the autocrat’s coethnics will be the most reliable supporters. Yet when tested against voting data, this prediction does not hold. This paper argues that minority security personnel’s identity suppression and isolation from coethnics explain their more steadfast regime support compared to their majority-group colleagues, who are the autocrat’s coethnics. Using uniquely identified electoral data on security forces’ voting across three Malaysian elections (2013–2022), complemented with field interviews, it finds that minority personnel supported the ruling coalition at similar or higher rates than their majority colleagues. The pattern of minority defections to a progressive opposition coalition during the 2018 election (when the regime fell) and the 2022 election is inconsistent with a materialist explanation. These findings challenge assumptions about stacked security forces’ loyalties, highlighting the importance of intra-organizational dynamics."
+  # pdf: "files/koo_jmp.pdf"
+
+- title: "Collective Punishment of the Other: Perceptions of Groupness and Public Responses to Foreign Influence"
+  section: working
+  coauthors: ['<a href="https://www.jonathanchu.org/" target="_blank" rel="noopener">Jonathan Chu</a> (National University of Singapore)']
+  status: "under review"
+  abstract: "When rival governments interfere in each other’s domestic affairs, disclosures of that interference often trigger demands for “collective punishment”—broadly punitive policies impacting the rival country’s ordinary citizens. Why do people support such indiscriminate policies that impose costs on an entire national group? We argue that people’s support for such measures is rooted in their perceptions of a national outgroup’s “groupness,” comprising two fundamental properties: entitativity/cohesion and essence/quality. These perceptions raise the perceived collective agency of outgroup nationals, making its members appear more threatening and responsible for their government’s actions. Our analysis of original U.S. policymaker and the mass public surveys shows consistent support for the argument. We also test two information interventions designed to reduce collective punishment preferences, finding that individual-level humanizing portrayals of outgroup members outperform group-level corrective information. The paper provides a new microfoundational account of how great power competition generates domestic pressure for discriminatory policies."
+
+- title: "The Malaysian Election Corpus: Polling Center and Queue-Level Results from 2008 to 2025"
+  section: working
+  url: "https://electiondata.my/research/"
+  coauthors: ['<a href="https://www.thevesh.com/about" target="_blank" rel="noopener">Thevesh Thevananthan</a> (Universiti Malaya)']
+  status: "working paper"
+
+- title: "Who's Posting Out? Shuffling of Security Personnel and Regime Support"
+  section: working
+  status: "working paper"
+
+- title: "The Effects of Regime Propaganda on Security Personnel Support"
+  section: in-progress
+
+- title: "Gatekeeping Bias in Surveys"
+  section: in-progress
+  coauthors: ['<a href="https://www.amandakweiss.com/" target="_blank" rel="noopener">Amanda Weiss</a> (Cornell)', '<a href="https://politicalscience.yale.edu/people/eran-rubinstein" target="_blank" rel="noopener">Eran Rubinstein</a> (Yale)']
+
+- title: "Unpacking Intelligence as a Mechanism of Political Control"
+  section: in-progress

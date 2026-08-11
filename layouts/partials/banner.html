@@ -1,0 +1,107 @@
+{{- /* Renders a photo banner.
+     name:   image filename, looked up in content/banners/ first, then content/field-notes/
+     images: (style "multi" only) list of {image, rotate?} shown side by side, left to right
+     style:  "hero"  = full-bleed cropped band at top of page
+             "strip" = full-bleed cropped band between sections
+             "fit"   = full-bleed band; whole photo height shown, blurred edges fill the sides
+             "multi" = several photos side by side in one band
+     id:     optional anchor id so nav links land on the banner */ -}}
+{{- $style := .style | default "strip" -}}
+{{- $id := .id -}}
+{{- if eq $style "multi-fit" -}}
+<div class="photo-divider photo-multifit full-bleed"{{ with $id }} id="{{ . }}"{{ end }} aria-hidden="true">
+  {{- range .images -}}
+    {{- $imgName := .image -}}
+    {{- $rot := "" -}}
+    {{- with .rotate -}}{{- $rot = printf " r%d" (sub 360 (int .)) -}}{{- end -}}
+    {{- $r := "" -}}
+    {{- with site.GetPage "/banners" -}}{{- $r = .Resources.GetMatch $imgName -}}{{- end -}}
+    {{- if not $r -}}
+      {{- with site.GetPage "/field-notes" -}}{{- $r = .Resources.GetMatch $imgName -}}{{- end -}}
+    {{- end -}}
+    {{- with $r -}}
+    {{- with .Resize (printf "x720 q80 webp%s" $rot) }}
+  <img src="{{ .RelPermalink }}" alt="" loading="lazy" width="{{ .Width }}" height="{{ .Height }}" style="flex: {{ div (float .Width) .Height }} 1 0%">
+    {{- end -}}
+    {{- end -}}
+  {{- end }}
+</div>
+{{- else if eq $style "multi" -}}
+{{- $mobile := .mobile -}}
+<div class="photo-divider photo-multi full-bleed"{{ with $id }} id="{{ . }}"{{ end }} aria-hidden="true">
+  {{- range .images -}}
+    {{- $imgName := .image -}}
+    {{- $fit := .fit -}}
+    {{- $noblur := eq .blur false -}}
+    {{- $anchor := .anchor -}}
+    {{- $rot := "" -}}
+    {{- with .rotate -}}{{- $rot = printf " r%d" (sub 360 (int .)) -}}{{- end -}}
+    {{- $r := "" -}}
+    {{- with site.GetPage "/banners" -}}{{- $r = .Resources.GetMatch $imgName -}}{{- end -}}
+    {{- if not $r -}}
+      {{- with site.GetPage "/field-notes" -}}{{- $r = .Resources.GetMatch $imgName -}}{{- end -}}
+    {{- end -}}
+    {{- with $r -}}
+    {{- if and $fit $noblur -}}
+    {{- with .Resize (printf "x720 q80 webp%s" $rot) }}
+  <span class="multi-panel is-fit">
+    <img src="{{ .RelPermalink }}" alt="" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
+  </span>
+    {{- end -}}
+    {{- else if $fit -}}
+    {{- $bg := .Fill (printf "842x720 q40 webp%s" $rot) -}}
+    {{- with .Resize (printf "x720 q80 webp%s" $rot) }}
+  <span class="multi-panel">
+    <img class="fit-bg" src="{{ $bg.RelPermalink }}" alt="" loading="lazy" width="{{ $bg.Width }}" height="{{ $bg.Height }}">
+    <img class="fit-fg" src="{{ .RelPermalink }}" alt="" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
+  </span>
+    {{- end -}}
+    {{- else -}}
+    {{- with .Fill (printf "842x720 q70 webp%s%s" $rot (cond (ne $anchor nil) (printf " %s" $anchor) "")) }}
+  <span class="multi-panel">
+    <img src="{{ .RelPermalink }}" alt="" loading="lazy" width="{{ .Width }}" height="{{ .Height }}"{{ with $anchor }} style="object-position: {{ lower . }} center"{{ end }}>
+  </span>
+    {{- end -}}
+    {{- end -}}
+    {{- end -}}
+  {{- end }}
+  {{- with $mobile -}}
+    {{- $mr := "" -}}
+    {{- with site.GetPage "/banners" -}}{{- $mr = .Resources.GetMatch $mobile -}}{{- end -}}
+    {{- if not $mr -}}{{- with site.GetPage "/field-notes" -}}{{- $mr = .Resources.GetMatch $mobile -}}{{- end -}}{{- end -}}
+    {{- with $mr -}}{{- with .Fill "1280x360 q70 webp" }}
+  <img class="multi-mobile" src="{{ .RelPermalink }}" alt="" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
+    {{- end -}}{{- end -}}
+  {{- end }}
+</div>
+{{- else -}}
+{{- $name := .name -}}
+{{- $res := "" -}}
+{{- with site.GetPage "/banners" -}}{{- $res = .Resources.GetMatch $name -}}{{- end -}}
+{{- if not $res -}}
+  {{- with site.GetPage "/field-notes" -}}{{- $res = .Resources.GetMatch $name -}}{{- end -}}
+{{- end -}}
+{{- with $res -}}
+  {{- if eq $style "hero" -}}
+    {{- with .Fill "1280x360 q75 webp" }}
+<div class="hero-banner full-bleed" aria-hidden="true">
+  <img src="{{ .RelPermalink }}" alt="" width="{{ .Width }}" height="{{ .Height }}">
+</div>
+    {{- end -}}
+  {{- else if eq $style "fit" -}}
+    {{- $bg := .Fill "1280x360 q40 webp" -}}
+    {{- with .Resize "x720 q80 webp" }}
+<div class="photo-divider photo-fit full-bleed"{{ with $id }} id="{{ . }}"{{ end }} aria-hidden="true">
+  <img class="fit-bg" src="{{ $bg.RelPermalink }}" alt="" loading="lazy" width="{{ $bg.Width }}" height="{{ $bg.Height }}">
+  <img class="fit-fg" src="{{ .RelPermalink }}" alt="" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
+</div>
+    {{- end -}}
+  {{- else -}}
+    {{- with .Fill "1280x360 q70 webp" }}
+<div class="photo-divider full-bleed"{{ with $id }} id="{{ . }}"{{ end }} aria-hidden="true">
+  <img src="{{ .RelPermalink }}" alt="" loading="lazy" width="{{ .Width }}" height="{{ .Height }}">
+</div>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- end -}}

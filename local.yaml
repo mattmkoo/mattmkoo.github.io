@@ -1,0 +1,7 @@
+# Overlay for an offline "double-click index.html" preview (Windows Explorer).
+# Build with:  hugo --config hugo.yaml,local.yaml --minify
+# Makes all links relative and drops the CSS integrity check so the page
+# renders when opened directly as a file:// page. Not for deployment.
+relativeURLs: true
+params:
+  localpreview: true

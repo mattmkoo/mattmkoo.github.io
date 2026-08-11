@@ -1,0 +1,75 @@
+baseURL: "https://mattmkoo.github.io/"
+title: "Matthew Koo"
+locale: en-us
+enableRobotsTXT: true
+disableKinds: ["taxonomy", "term"]
+
+params:
+  description: "Ph.D. Candidate, Department of Political Science, Yale University"
+  author: "Matthew Koo"
+  email: "matthew.koo@yale.edu"
+  affiliation: "Yale University"
+  # Written content lives in the data/ folder — bio, tagline, interests,
+  # teaching note, papers, teaching, talks, education, etc. Edit it there.
+  social:
+    linkedin: "https://www.linkedin.com/in/matthewkoo"
+    scholar: ""   # paste Google Scholar profile URL here to show the button
+    orcid: "https://orcid.org/0009-0007-8209-7609"
+    github: "https://github.com/mattmkoo"
+  # Banner images — filenames looked up in content/banners/ first, then
+  # content/field-notes/. style: "strip" = cropped full-width band,
+  # "full" = whole photo at content width, "wide" = whole photo at full page width.
+  banners:
+    hero: "field-12.jpg"
+    research:
+      style: "multi-fit"   # every photo shown whole, no fill; band height adapts
+      images:
+        - image: "malaysia-military.jpg"
+        - image: "national-monument.jpg"
+        - image: "malaysia-police.jpg"
+    teaching:
+      style: "multi"
+      mobile: "yale-lecture-hall.jpg"   # single cropped photo shown on narrow screens
+      images:
+        - image: "yale-sterling-library.jpg"
+          fit: true
+          blur: false  # whole photo shown
+        - image: "yale-lecture-hall.jpg"
+        - image: "yale-rosenkranz-hall.jpg"
+          fit: true
+          blur: false  # whole photo shown
+    fieldnotes:
+      style: "multi"   # several photos side by side, left to right
+      mobile: "dog-with-book.jpg"   # single cropped photo shown on narrow screens
+      images:
+        - image: "cat-sleeping.jpg"
+        - image: "dog-with-book.jpg"
+        - image: "cat-kitten.jpg"
+          fit: true
+          blur: false  # whole (pre-cropped) photo shown, centered
+        - image: "dog-patted.jpg"
+          rotate: 90
+          anchor: "Left"   # keep the dog's face side in view
+  mysite:
+    credit: true
+    discovery: true
+
+menu:
+  main:
+    - name: Research
+      url: "/#research"
+      weight: 10
+    - name: Teaching
+      url: "/#teaching"
+      weight: 20
+    - name: CV
+      url: "/cv/"
+      weight: 30
+    - name: Field Notes
+      url: "/#field-notes"
+      weight: 40
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

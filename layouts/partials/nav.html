@@ -1,0 +1,25 @@
+<header class="site-header">
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="site-name" href="{{ "/" | relURL }}"><strong>Matthew Koo</strong></a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+    <ul class="nav-links">
+      {{ range site.Menus.main }}
+      <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+</header>
+<script>
+  /* Close the mobile menu when a link is tapped, so the sticky header
+     collapses back and the target banner scrolls into view. */
+  (function () {
+    var toggle = document.getElementById('nav-toggle');
+    if (!toggle) return;
+    document.querySelectorAll('.nav-links a').forEach(function (link) {
+      link.addEventListener('click', function () { toggle.checked = false; });
+    });
+  })();
+</script>
