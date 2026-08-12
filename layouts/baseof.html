@@ -8,5 +8,10 @@
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
+  {{/* GoatCounter analytics — live site only (skipped on dev server + preview builds) */}}
+  {{ if and (not hugo.IsServer) (not site.Params.noindex) (not site.Params.localpreview) }}
+  <script data-goatcounter="https://mattmkoo.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  {{ end }}
 </body>
 </html>
