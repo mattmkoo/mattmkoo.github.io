@@ -1,10 +1,10 @@
 # level: "Undergraduate" or "Graduate" — shown as a pill on the right of the title.
-# - course: "Immigration"
-#   level: "Undergraduate"
-#   role: "Teaching Fellow"
-#   instructor: "Prof. Nicholas Sambanis"
-#   institution: "Yale University"
-#   term: "Fall 2026"
+- course: "Immigration"
+  level: "Undergraduate"
+  role: "Teaching Fellow"
+  instructor: "Prof. Nicholas Sambanis"
+  institution: "Yale University"
+  term: "Fall 2026"
 
 - course: "Government and Politics in Africa"
   level: "Undergraduate"
